@@ -1,28 +1,43 @@
-text=input()
-aa=2*'abcdefghijklmnopqrstuvwxyz'
-AA=2*'ABCDEFGHIJKLMNOPGRSTUVWXYZ'
-w=''
-code_word=''
-K=0
-for i in range(len(text)):
-    if text[i]==',' or text[i]=='.' or text[i]==', ':
-        if len(w)>K:
-            K=len(w)
-            code_word=w
-        w=''
-    else:
-        w+=text[i]
+text=input('Введите текст: ')
 
-nt=''
-for s in text:
-    if s in aa:
-        for j in range(len(aa)//2):
-            if aa[j]==s:
-                nt+=aa[j+K]
-    elif s in aa:
-        for j in range(len(AA)//2):
-            if AA[j]==s:
-                nt+=AA[j+K]
+down_letters=2*'abcdefghijklmnopqrstuvwxyz'
+up_letters=2*'ABCDEFGHIJKLMNOPGRSTUVWXYZ'
+
+word=''
+code_word=''
+
+point=0
+K=0
+
+for i in range(len(text)):
+    if text[i]=='.':
+        point+=1
+    if text[i]==',' or text[i]=='.' or text[i]==', ':
+        if len(word)>K:
+            K=len(word)
+            code_word=word
+        word=''
     else:
-        nt+=s
-print(nt,K)
+        word+=text[i]
+
+transformered_string=''
+
+if point==0:
+    print('This text does not contain a period! You must rewrite the text, adding only a single period at the end.')
+elif point==2:
+    print('This text contains more than two periods! You must rewrite the text, adding only a single period at the end.')
+elif len(code_word)<=20:
+    for symbol in text:
+        if symbol in down_letters:
+            for j in range(len(down_letters)//2):
+                if down_letters[j]==symbol:
+                    transformered_string+=down_letters[j+K]
+        elif symbol in down_letters:
+            for j in range(len(up_letters)//2):
+                if [j]==symbol:
+                    transformered_string+=up_letters[j+K]
+        else:
+            transformered_string+=s
+    print(transformered_string,K)
+else:
+    print('The maximum number of characters allowed is 20! Please re-enter the text.')

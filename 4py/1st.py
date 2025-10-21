@@ -1,29 +1,34 @@
 text = input('Введите текст: ')
-ntt=''
-nt = ''
-st = ''
+
+line_reversed=''
+words_repository = ''
+symbols_reversed = ''
 word=''
+
 for j in range(len(text)-1, -1, -1):
     if text[j]==' ':
-        ntt+=word+' '
+        line_reversed+=word+' '
         word=''
     else:
         word=text[j]+word
+
     if j==0:
-        ntt+=word
+        line_reversed+=word
         word=''
-print(ntt)
+
+print(line_reversed)
 
 for i in range(len(text)):
     if text[i] != ' ':
-        nt += text[i]
+        words_repository += text[i]
     else:
-        for j in range(len(nt)):
-            st += nt[-j - 1]
-        st += ' '
-        nt = ''
+        for j in range(len(words_repository)):
+            symbols_reversed += words_repository[-j - 1]
+        symbols_reversed += ' '
+        words_repository = ''
 
     if i == len(text) - 1:
-        for j in range(len(nt)):
-            st += nt[-j - 1]
-print(st)
+        for j in range(len(words_repository)):
+            symbols_reversed += words_repository[-j - 1]
+
+print(symbols_reversed)

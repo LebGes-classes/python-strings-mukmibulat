@@ -14,6 +14,7 @@ for s in text:
 
 splited_text=[]
 word=''
+
 for i in range(len(low_text)):
     if low_text[i]==' ':
         if word!='':
@@ -21,12 +22,15 @@ for i in range(len(low_text)):
             word=''
     else:
         word+=low_text[i]
+
 if word!='':
     splited_text.append(word)
 
 list=[]
+
 for word in splited_text:
     word_count = [word, splited_text.count(word)]
+
     if word_count not in list:
         list.append(word_count)
 
