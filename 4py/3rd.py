@@ -1,15 +1,16 @@
 text = input('Введите текст: ')
 
-up_letters='ABCDEFGHIJKLMNOPGRSTUVWXYZАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+up_letters='ABCDEFGHIJKLMNOPQRSTUVWXYZАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
 down_letters='abcdefghijklmnopqrstuvwxyzабвгдеёжзийклмнопрстуфхцчшщъыьэюя'
 
 low_text=''
 for s in text:
+    letter_founded=0
     for i in range(52):
         if s == up_letters[i]:
             low_text+=down_letters[i]
-            break
-    else:
+            letter_founded=1
+    if not letter_founded:
         low_text+=s
 
 splited_text=[]
