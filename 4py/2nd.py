@@ -1,7 +1,7 @@
 text=input('Введите текст: ')
 
-down_letters=2*'abcdefghijklmnopqrstuvwxyz'
-up_letters=2*'ABCDEFGHIJKLMNOPGRSTUVWXYZ'
+down_letters='abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz'
+up_letters='ABCDEFGHIJKLMNOPGRSTUVWXYZABCDEFGHIJKLMNOPGRSTUVWXYZ'
 
 word=''
 code_word=''
