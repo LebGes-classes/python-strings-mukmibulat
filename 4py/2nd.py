@@ -1,3 +1,5 @@
+from sys import dont_write_bytecode
+
 text=input('Введите текст: ')
 
 down_letters='abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz'
@@ -6,7 +8,6 @@ up_letters='ABCDEFGHIJKLMNOPGRSTUVWXYZABCDEFGHIJKLMNOPGRSTUVWXYZ'
 word=''
 code_word=''
 
-point=0
 K=0
 
 for i in range(len(text)):
@@ -23,13 +24,13 @@ transformered_string=''
 if len(code_word)<=20:
     for symbol in text:
         if symbol in down_letters:
-            for j in range(len(down_letters)//2):
+            for j in range(26):
                 if down_letters[j]==symbol:
                     transformered_string+=down_letters[j+K]
-        elif symbol in down_letters:
-            for j in range(len(up_letters)//2):
-                if [j]==symbol:
-                    transformered_string+=up_letters[j+K]
+        elif symbol in up_letters:
+            for h in range(26):
+                if up_letters[h]==symbol:
+                    transformered_string+=up_letters[h+K]
         else:
             transformered_string+=symbol
     print(transformered_string,K)
